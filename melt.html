@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>singing</title>
+    <script type = "text/javascript" src = "sound.js"></script>
+  </head>
+  <body>
+    <div style="position:relative;padding:10%">
+    	<iframe src="https://www.youtube.com/embed/o1jAMSQyVPc?ecver=2" style="width:100% !important;height:100% !important;left:0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    	</iframe>
+    </div>
+    
+    <div align = "center">
+    	<button type = "button" onClick="sound()" >
+    		<img src = "Tambourine.jpg" height = "50px" width = "50px">
+    	</button>
+    </div>
+    
+    <audio id = "sound" preload = "auto">
+    	<source src = "sound.mp3" type = "audio/mp3">
+    	<source src = "sound.wav" type = "audio/wav">
+    </audio>
+  </body>
+</html>
