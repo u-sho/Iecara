@@ -11,6 +11,7 @@ page_Alps.html
         <meta charset="utf-8">
         <title>singing</title>
         <script type = "text/javascript" src = "sound.js"></script>
+        <script type = "text/css" src = "alps.css"></script>
     </head>
     
     <body>
@@ -34,22 +35,33 @@ page_Alps.html
     </div>
     
     <center>
-    <button type="button" name="melt" width = "75%">
+    <button type="button" name="music" style = "width:75%">
 	    <font size="5"  color="#333399" onClick = 'location.href= "iframe_button.html"'  >　楽曲選択画面　</font>
     </button>
     </center>
+    
     <div class="container">
-		<div style="margin:0 0 10px;">
+
+		<div hidden style="margin:0 0 10px;">
 			<audio id="player1" src="telop/Yankee_Doodle_xf.mp3" type="audio/mp3" controls="controls"></audio>
 		</div>
-		<button id="start" style="margin:10px 0;">Start</button>
+
+		<center>
+			<button id="start" style = "width:75%" >
+				<font size="5"  color="#333399"  >　Start　</font>
+			</button>
+		</center>
+		
 		<div data-bind="foreach: lyrics">
+		
 			<div class="line">
 				<div class="shadow" data-bind="foreach: words"><span data-bind="text: text"></span></div>
 				<div class="telop" data-bind="foreach: words"><span data-bind="text: text"></span></div>
-			</div>
-		</div>
-	</div>
+				
+			</div> <!-- /div line -->
+		</div> <!-- /div foreach:lyrics -->
+	</div> <!-- /div container -->
+	
 	<div style="display:none;">
 		<textarea>
 			[00:07:76]ア[00:08:02]ル[00:08:19]プ[00:08:38]ス[00:08:67]一[00:08:99]万[00:09:37]尺[00:09:68] [00:09:89]小[00:10:12]槍(こやり)[00:10:58]の[00:10:81]上[00:11:45]で[00:11:51]
