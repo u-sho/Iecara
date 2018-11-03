@@ -1,42 +1,33 @@
 <!DOCTYPE html>
+
+<!--
+
+index.html
+
+-->
+
 <html>
-  <head>
-    <meta charset="utf-8" />
+    <head>
+        <meta charset="utf-8" />
     <!--
     <link rel="stylesheet" href="sample.css" type="text/css">
     -->
-  </head>
-  <body>
-    <center>
-    <br><br>
-    <font size="10"  color="#333399">楽曲選択</font>
+    </head>
 
-    <br><br><br><br>
+    <body>
+    
+        <iframe src = "./iframe_header.html" name = "header"   width = "100%" height = "170" >  
+        </iframe>
 
-    <button type="button" name="nosho">
-	<font size="5"  color="#333399" onClick = 'location.href= "nousyou.html"'>　脳漿炸裂ガール　</font><font size="2">　れるりり　</font>
-	</button>
+        <iframe src = "./iframe_video.html" name = "video"   width = "69%" height = "1000" >  
+        </iframe>
 
-	<button type="button" name="melt">
-	<font size="5"  color="#333399" onClick = 'location.href= "melt.html"'>　メルト　</font><font size="2">　supercell　</font>
-	</button>
+        <iframe src = "./iframe_button.html" name="button" width = "29%" height = "1000">
+	    </iframe>
 
-	<br><br>
 
-    <button type="button" name="koi">
-	<font size="5"  color="#333399">　恋　</font><font size="2">　星野源　</font>
-	</button>
-
-	<button type="button" name="aaa" value="aaa">
-	<font size="5"  color="#333399">　津軽海峡　</font><font size="2">　坂本冬美　</font>
-	</button>
-
-    <br><br>
-
-    <button type="button" name="alps">
-    <font size="10"  color="333399" onClick = 'location.href= "alps.html"'>　アルプス一万尺　</font><font size="2">　不明　</font>
-    </button>
-	</center>
-
-  </body>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
 </html>
