@@ -28,7 +28,10 @@
     var timerId;
     function tick() {
         var elapsed = Date.now() - startTime; // MEMO: player.getCurrentTime() は精度が低いので使えない
-        if (elapsed < words[0].offset) {
+        if (elapsed < words[0].offset - 200) {
+            return;
+        }else if (elapsed >= words[0].offset - 200 && elapsed < words[0].offset){
+            $('.current').parent('.line').fadeIn();
             return;
         }
         var lineEnd = true;
@@ -47,8 +50,7 @@
         }
         if (lineEnd) {
             // 1行表示終了時の処理
-            $('.current').css('background', white);
-            $('.current').parent('.line').prev('.line:first').fadeOut();
+            $('.current').parent('.line').fadeOut();
             $('.current').removeClass('current');
             // next line
             ++lineIndex;
@@ -57,6 +59,7 @@
                 return;
             }
             $('.telop').eq(lineIndex).addClass('current');
+            $('.current').parent('.line').fadeIn();
             // reset
             progressWidth = 0;
             wordIndex = 0;
@@ -81,9 +84,13 @@
         $('.telop:first').addClass('current').find('span').each(function () {
             widths.push($(this).width());
         });
+        console.log(widths);
         startTime = Date.now();
         player.play();
         timerId = setInterval(tick, 50);
+
+        //スタートボタンの非表示
+        //中止ボタンの表示
     });
 })(jQuery);
 //# sourceMappingURL=main.js.map
