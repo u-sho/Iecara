@@ -1,8 +1,9 @@
-'use strict';
-
+//'use strict';
+console.log({Peer});
 let localStream = null;
 let peer = null;
-let existingCall = null;
+//let existingCall = null;
+let friendsNumber = 1;
 
 navigator.mediaDevices.getUserMedia({video: true, audio: true})
     .then(function (stream) {
@@ -16,12 +17,12 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true})
 });
 
 peer = new Peer({
-    key: '66d446fa-f87d-48fc-a0bb-ce28aa74b244',
+    key: '3f8bc27b-ef1e-404c-b949-7bdfe89b9eb1',
     debug: 3
 });
 
 peer.on('open', function(){
-    $('#my-id').text(peer.id);
+    console.log("myId:" + peer.id);
 });
 
 peer.on('error', function(err){
@@ -32,49 +33,61 @@ peer.on('close', function(){
 });
 
 peer.on('disconnected', function(){
+    console.log(arguments);
+    alert("disconnected!\ncheck your internet access.")
 });
 
-$('#make-call').submit(function(event){
-    event.preventDefault();
-    const call = peer.call($('#callto-id').val(), localStream);
-    setupCallEventHandlers(call);
+$(document).ready(function() {
+    $('#make-room').on('click', function(){
+        //event.preventDefault();
+        //console.log('beforJoin');
+        const room = peer.joinRoom($('#room-id').val(), {
+            mode: 'sfu',
+            stream: localStream,
+        });
+        console.log("successed to make a room");
+        //setupRoomEventHandlers(room);
+    });
+
+    $('#join-room').on('click', function(){
+        
+    })
+
+    $('#remove-room').on('click', function(){
+        room.close();
+    });
+
+
 });
 
-$('#end-call').click(function(){
-    existingCall.close();
-});
 
-peer.on('call', function(call){
-    call.answer(localStream);
-    setupCallEventHandlers(call);
-});
-
-function setupCallEventHandlers(call){
+function setupRoomEventHandlers(room){
     //if (existingCall) {
     //    existingCall.close();
     //};
 
-    existingCall = call;
+    //existingCall = call;
 
-    call.on('stream', function(stream){
-        addVideo(call,stream);
-        //setupEndCallUI();
-        $('#their-id').text(call.remoteId);
+    room.on('stream', function(stream){
+        addVideo(room,stream);
     });
-    call.on('close', function(){
-        removeVideo(call.remoteId);
+
+    room.on('close', function(){
+        removeVideo(room.remoteId);
         setupMakeCallUI();
     });
-
-
 }
 
-function addVideo(call,stream){
-    $('#their-video').get(0).srcObject = stream;
+function addVideo(room, stream){
+    const tags='<video id="' + $('#their-id') + '" autoplay></video>';
+    console.log(tags);
+    $('#my-video').before(tags)
+    $('$("#their-id")').get(0).srcObject = stream;
+    //$("#friend"+friendsNumber).get(0).srcObject = stream;
 }
 
 function removeVideo(peerId){
-    $('#'+peerId).remove();
+    room.close();
 }
 
 function setupMakeCallUI(){
