@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<!--
+
+page_nosho.html
+
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>singing</title>
+        <script type = "text/javascript" src = "sound.js"></script>
+    </head>
+    <body>
+    
+    <center>
+        <div style="position:relative;padding:10%">
+        	<iframe src="https://www.youtube.com/embed/HC5gN4gfMbo?ecver=2" width = "100%" >
+        	</iframe>
+        </div>
+    </center>
+    
+    <audio id = "sound" preload = "auto">
+    	<source src = "./audio/TamFertig.mp3" type = "audio/mp3">
+    	<source src = "./audio/TamFertig.wav" type = "audio/wav">
+    </audio>
+    
+    <div align = "center">
+    	<button type = "button" onClick="sound()" >
+    		<img src = "./img/Tambourine.jpg" height = "50px" width = "50px">
+    	</button>
+    </div>
+    
+    <center>
+    <button type="button" name="melt" width = "75%">
+	    <font size="5"  color="#333399" onClick = 'location.href= "iframe_button.html"' >　楽曲選択画面　</font>
+    </button>
+    </center>
+    
+    </body>
+</html>
