@@ -17,15 +17,15 @@ page_Alps.html
     <body>
     
     <center>
-    <!--
-    <div style="position:relative;padding:10%">
-    	<iframe src="https://www.youtube.com/embed/1WuakCHtbVU?ecver=2" width = "100%" >
-    	</iframe>
+
+    <div >
+    	<iframe class="video" id = 'popup-YouTube-player' src="https://www.youtube.com/embed/1WuakCHtbVU?modestbranding=1&rel=0&controls=0&autohide=0&showinfo=0&enablejsapi=1" width = "100%" ></iframe>
     </div>
-    -->
-    <div id = "sample">
-    </div>
+
+	<!--
+    <div id = "sample"></div>
     </center>
+    -->
     
     <audio id = "sound" preload = "auto">
     	<source src = "./audio/TamFertig.mp3" type = "audio/mp3">
@@ -45,9 +45,11 @@ page_Alps.html
 		</div>
 
 		<center>
-			<button id="start" style = "width:75%" >
+		<div class = "startButton" >
+			<button  id="start" style = "width:75%" >
 				<font size="5"  color="#333399"  >　Start　</font>
 			</button>
+		</div>
 		</center>
 		<br>
 		<div data-bind="foreach: lyrics">
@@ -89,6 +91,6 @@ page_Alps.html
 	<script src="telop/mediaelement-and-player.min.js"></script>
 	<script src="telop/lyrics.js"></script>
 	<script src="telop/main.js"></script>
-	<script src="telop/YTPlayer.js"></script>
+	<script src="telop/yt_Player.js"></script>
   </body>
 </html>
